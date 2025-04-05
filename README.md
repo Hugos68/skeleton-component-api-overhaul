@@ -1,15 +1,3 @@
-# skeleton-component-api-revisit
+# skeleton-component-api-overhaul
 
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.2.6. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+POC to test the `Accordion` component with new methodology
