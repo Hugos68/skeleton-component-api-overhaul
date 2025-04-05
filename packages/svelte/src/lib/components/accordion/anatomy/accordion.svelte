@@ -8,19 +8,23 @@
     const [
         zagProps,
         componentProps
-    ] = accordion.splitProps(props);
+    ] = $derived(accordion.splitProps(props));
     const id = $props.id();
-    const service = useMachine(accordion.machine, { 
+    const service = useMachine(accordion.machine, () => ({ 
         id: id,
         ...zagProps
+    }));
+    const api = $derived(accordion.connect(service, normalizeProps));
+    const elementProps =  $derived(mergeProps(api.getRootProps(), {
+        class: 'base:grid gap-2'
+    }, componentProps));
+    setContext('accordion-context', {
+        get api() {
+            return api;
+        },
     });
-    const api = accordion.connect(service, normalizeProps);
-    const elementProps =  mergeProps(api.getRootProps(), {
-        className: 'base:grid gap-2'
-    }, componentProps);
-    setContext('accordion-context', api);
 </script>
 
 <div {...elementProps}>
-    {props.children}
+    {@render props.children?.()}
 </div>

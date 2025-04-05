@@ -8,15 +8,18 @@
     const [
         zagProps,
         componentProps
-    ] = accordion.splitItemProps(props);
-    const id = $props.id();
-    const api = getContext<accordion.Api>('accordion-context');
-    const elementProps =  mergeProps(api.getItemProps(zagProps), {
-        className: 'base:grid gap-2'
-    }, componentProps);
-    setContext('accordion-item-context', zagProps);
+    ] = $derived(accordion.splitItemProps(props));
+    const accordionContext = getContext<{ api: accordion.Api }>('accordion-context');
+    const elementProps =  $derived(mergeProps(accordionContext.api.getItemProps(zagProps), {
+        class: 'base:grid gap-2'
+    }, componentProps));
+    setContext('accordion-item-context', {
+        get itemProps() {
+            return zagProps;
+        },
+    });
 </script>
 
 <div {...elementProps}>
-    {props.children}
+    {@render props.children?.()}
 </div>

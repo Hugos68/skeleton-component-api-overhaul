@@ -1,5 +1,3 @@
-'use client';
-
 import Accordion from "./anatomy/accordion.svelte";
 import AccordionItem from "./anatomy/accordion.item.svelte";
 import AccordionTrigger from "./anatomy/accordion.trigger.svelte";

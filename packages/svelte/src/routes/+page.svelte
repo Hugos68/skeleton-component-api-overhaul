@@ -10,18 +10,18 @@
     <div class="max-w-lg w-full">
       <Accordion value={value} onValueChange={(details) => (value = details.value)}>
         {#each items as item}
-        <Accordion.Item key={item} value={`item-${item}`}>
-            <Accordion.Trigger>
-              Item {item}
-              <Accordion.Indicator>
-                {value.includes(`item-${item}`) ? '-' : '+'}
-              </Accordion.Indicator>
-            </Accordion.Trigger>
-            <Accordion.Content>
-              Content for item {item}
-            </Accordion.Content>
-          </Accordion.Item>
-        {/each}
+          <Accordion.Item value={`item-${item}`}>
+              <Accordion.Trigger>
+                Item {item}
+                <Accordion.Indicator>
+                  {value.includes(`item-${item}`) ? '-' : '+'}
+                </Accordion.Indicator>
+              </Accordion.Trigger>
+              <Accordion.Content>
+                Content for item {item}
+              </Accordion.Content>
+            </Accordion.Item>
+          {/each}
       </Accordion>
     </div>
   </div>

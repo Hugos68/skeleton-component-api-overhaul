@@ -5,9 +5,9 @@
     import type {  AccordionIndicatorProps } from "../types";
 
     const props: AccordionIndicatorProps = $props();
-    const api = getContext<accordion.Api>('accordion-context');
-    const itemProps = getContext<accordion.ItemProps>('accordion-item-context');
-    const elementProps =  mergeProps(api.getItemIndicatorProps(itemProps), props);
+    const accordionContext = getContext<{ api: accordion.Api }>('accordion-context');
+    const accordionItemContext = getContext<{ itemProps: accordion.ItemProps }>('accordion-item-context');
+    const elementProps = $derived(mergeProps(accordionContext.api.getItemIndicatorProps(accordionItemContext.itemProps), props));
 </script>
 
 <div {...elementProps}>
