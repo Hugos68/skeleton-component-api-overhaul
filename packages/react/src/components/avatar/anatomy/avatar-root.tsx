@@ -11,19 +11,22 @@ export default function(props: AvatarRootProps) {
         machineProps,
         componentProps
     ] = avatar.splitProps(props);
+    const {
+        children,
+        ...restAttributes
+    } = componentProps;
     const service = useMachine(avatar.machine, {
         id: useId(),
         ...machineProps
     });
     const api = avatar.connect(service, normalizeProps);
-    const elementProps = mergeProps(api.getRootProps(), {
+    const attributes = mergeProps(api.getRootProps(), {
         className: 'base:isolate base:bg-surface-400-600 base:size-16 base:rounded-full base:overflow-hidden'
-    }, componentProps);
-
+    }, restAttributes);
     return (
         <AvatarRootContext.Provider value={{ api }}>
-            <div {...elementProps}>
-                {componentProps.children}
+            <div {...attributes}>
+                {children}
             </div>
         </AvatarRootContext.Provider>
     )

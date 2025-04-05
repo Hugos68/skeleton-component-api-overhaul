@@ -7,12 +7,16 @@ import { useContext } from "react";
 
 export default function(props: AvatarFallbackProps) {
     const rootContext = useContext(AvatarRootContext);
-    const elementProps =  mergeProps(rootContext.api.getFallbackProps(), {
+    const {
+        children,
+        ...restAttributes
+    } = props;
+    const attributes = mergeProps(rootContext.api.getFallbackProps(), {
         className: 'base:size-full base:flex base:justify-center base:items-center'
-    }, props);
+    }, restAttributes);
     return (
-        <span {...elementProps}>
-            {props.children}
+        <span {...attributes}>
+            {children}
         </span>
     )
 }

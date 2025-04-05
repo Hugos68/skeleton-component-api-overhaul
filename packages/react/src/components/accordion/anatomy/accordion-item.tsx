@@ -12,11 +12,12 @@ export default function(props: AccordionItemProps) {
         itemProps,
         componentProps
     ] = accordion.splitItemProps(props);
-    const elementProps =  mergeProps(rootContext.api.getItemProps(itemProps), componentProps);
+    const { children, ...restAttributes } = componentProps;
+    const attributes =  mergeProps(rootContext.api.getItemProps(itemProps), restAttributes);
     return (
         <AccordionItemContext.Provider value={{ itemProps }}>
-            <div {...elementProps}>
-                {props.children}
+            <div {...attributes}>
+                {children}
             </div>
         </AccordionItemContext.Provider>
     )

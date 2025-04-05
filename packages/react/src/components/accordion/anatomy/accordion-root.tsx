@@ -8,21 +8,22 @@ import type { AccordionRootProps } from '../modules/types';
 
 export default function(props: AccordionRootProps) {
     const [
-        zagProps,
+        machineProps,
         componentProps
     ] = accordion.splitProps(props);
+    const { children, ...restAttributes } = componentProps;
     const service = useMachine(accordion.machine, { 
         id: useId(),
-        ...zagProps
+        ...machineProps
     });
     const api = accordion.connect(service, normalizeProps);
-    const elementProps =  mergeProps(api.getRootProps(), {
+    const attributes =  mergeProps(api.getRootProps(), {
         className: 'base:grid base:gap-2'
-    }, componentProps);
+    }, restAttributes);
     return (
         <AccordionRootContext.Provider value={{ api }}>
-            <div {...elementProps}>
-                {props.children}
+            <div {...attributes}>
+                {children}
             </div>
         </AccordionRootContext.Provider>
     )

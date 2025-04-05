@@ -8,12 +8,16 @@ import { AccordionContentProps } from "../modules/types";
 export default function(props: AccordionContentProps) {
     const rootContext = useContext(AccordionRootContext);
     const itemContext = useContext(AccordionItemContext);
-    const elementProps =  mergeProps(rootContext.api.getItemContentProps(itemContext.itemProps), {
+    const {
+        children,
+        ...restAttributes
+    } = props;
+    const attributes = mergeProps(rootContext.api.getItemContentProps(itemContext.itemProps), {
         className: 'base:py-2 base:px-4'
-    }, props);
+    }, restAttributes);
     return (
-        <div {...elementProps}>
-            {props.children}
+        <div {...attributes}>
+            {children}
         </div>
     )
 }

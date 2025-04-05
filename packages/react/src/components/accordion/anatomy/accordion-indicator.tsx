@@ -7,10 +7,14 @@ import { AccordionIndicatorProps } from "../modules/types"
 export default function(props: AccordionIndicatorProps) {
     const rootContext = useContext(AccordionRootContext);
     const itemContext = useContext(AccordionItemContext);
-    const elementProps =  mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), props);
+    const {
+        children,
+        ...restAttributes
+    } = props;
+    const attributes =  mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), restAttributes);
     return (
-        <div {...elementProps}>
-            {props.children}
+        <div {...attributes}>
+            {children}
         </div>
     )
 }
