@@ -83,6 +83,9 @@ importers:
       '@zag-js/accordion':
         specifier: ^1.8.2
         version: 1.8.2
+      '@zag-js/avatar':
+        specifier: ^1.8.2
+        version: 1.8.2
       '@zag-js/svelte':
         specifier: ^1.8.2
         version: 1.8.2(svelte@5.25.6)
@@ -947,6 +950,9 @@ packages:
 
   '@zag-js/anatomy@1.8.2':
     resolution: {integrity: sha512-F88Q+Bo1KOFZPHLffOqiuemkgZJbtspQuyOJcWb0bL7Lc1pYC4DIpIj26bcXT8xICDNcwR877hI0Wko//ZgTVA==}
+
+  '@zag-js/avatar@1.8.2':
+    resolution: {integrity: sha512-PWhYVvXyOt+kdi2Vd6GfqGQQruh1TNylw6TzNbhPt3B6Fj6uNvQqfEsh6yNErfnCeaa4b/Q+48rM4b/t3DzM0g==}
 
   '@zag-js/core@1.8.2':
     resolution: {integrity: sha512-vZDvvXuoxKnVXqBS6H6ZGbfxRWaQ9DStVS/a+tLdP0pz05NJwyJIPSWOOHZo9XPDiN4j1mRaTVcSvNpuOSEDTw==}
@@ -3027,6 +3033,14 @@ snapshots:
       '@zag-js/utils': 1.8.2
 
   '@zag-js/anatomy@1.8.2': {}
+
+  '@zag-js/avatar@1.8.2':
+    dependencies:
+      '@zag-js/anatomy': 1.8.2
+      '@zag-js/core': 1.8.2
+      '@zag-js/dom-query': 1.8.2
+      '@zag-js/types': 1.8.2
+      '@zag-js/utils': 1.8.2
 
   '@zag-js/core@1.8.2':
     dependencies:

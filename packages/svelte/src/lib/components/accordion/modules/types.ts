@@ -1,10 +1,7 @@
 import * as accordion from '@zag-js/accordion';
-import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
+import type { PropsWithChildren } from '$lib/internal/props-with-children';
 
-interface PropsWithChildren {
-    children?: Snippet;
-}
 interface AccordionRootProps extends PropsWithChildren, Omit<accordion.Props, 'id'>, Omit<HTMLAttributes<HTMLElement>,  'id' | 'defaultValue' | 'dir'> {}
 interface AccordionItemProps extends PropsWithChildren, accordion.ItemProps, HTMLAttributes<HTMLElement> {}
 interface AccordionTriggerProps extends PropsWithChildren, HTMLAttributes<HTMLElement> {}

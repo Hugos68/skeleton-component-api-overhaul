@@ -22,6 +22,7 @@
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
 		"@tailwindcss/vite": "^4.0.0",
 		"@zag-js/accordion": "^1.8.2",
+		"@zag-js/avatar": "^1.8.2",
 		"@zag-js/svelte": "^1.8.2",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",

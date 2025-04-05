@@ -1,5 +1,7 @@
 import { createContext } from "react";
 import { AccordionContext as AccordionRootContextType, AccordionItemContext as AccordionItemContextType } from "./types";
 
-export const AccordionRootContext = createContext<AccordionRootContextType>(null!);
-export const AccordionItemContext = createContext<AccordionItemContextType>(null!);
+const AccordionRootContext = createContext<AccordionRootContextType>(null!);
+const AccordionItemContext = createContext<AccordionItemContextType>(null!);
+
+export { AccordionRootContext, AccordionItemContext };
