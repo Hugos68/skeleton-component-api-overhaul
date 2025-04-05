@@ -1,22 +1,22 @@
 <script lang="ts">
 	import { mergeProps } from "@zag-js/svelte";
     import * as accordion from "@zag-js/accordion";
-	import type { AccordionItemProps } from "../types";
-	import { getContext, setContext } from "svelte";
+	import { AccordionItemContext, AccordionRootContext } from "../modules/context";
+    import type { AccordionItemProps } from "../modules/types";
 
     const props: AccordionItemProps = $props();
     const [
-        zagProps,
+        itemProps,
         componentProps
     ] = $derived(accordion.splitItemProps(props));
-    const accordionContext = getContext<{ api: accordion.Api }>('accordion-context');
-    const elementProps =  $derived(mergeProps(accordionContext.api.getItemProps(zagProps), {
+    const rootContext = AccordionRootContext.consume();
+    const elementProps =  $derived(mergeProps(rootContext.api.getItemProps(itemProps), {
         class: 'base:grid gap-2'
     }, componentProps));
-    setContext('accordion-item-context', {
+    AccordionItemContext.provide({
         get itemProps() {
-            return zagProps;
-        },
+            return itemProps;
+        }
     });
 </script>
 

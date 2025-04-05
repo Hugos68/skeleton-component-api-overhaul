@@ -3,18 +3,18 @@
 import { useContext } from 'react';
 import * as accordion from '@zag-js/accordion';
 import { mergeProps } from '@zag-js/react';
-import type { AccordionItemProps } from '../types';
-import { AccordionContext, AccordionItemContext } from '../context';
+import type { AccordionItemProps } from '../modules/types';
+import { AccordionRootContext, AccordionItemContext } from '../modules/context';
 
 export function AccordionItem(props: AccordionItemProps) {
-    const api = useContext(AccordionContext);
+    const rootContext = useContext(AccordionRootContext);
     const [
-        zagProps,
+        itemProps,
         componentProps
     ] = accordion.splitItemProps(props);
-    const elementProps =  mergeProps(api.getItemProps(zagProps), componentProps);
+    const elementProps =  mergeProps(rootContext.api.getItemProps(itemProps), componentProps);
     return (
-        <AccordionItemContext.Provider value={zagProps}>
+        <AccordionItemContext.Provider value={{ itemProps }}>
             <div {...elementProps}>
                 {props.children}
             </div>

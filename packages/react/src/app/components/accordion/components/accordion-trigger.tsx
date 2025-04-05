@@ -2,13 +2,13 @@
 
 import { useContext } from "react";
 import { mergeProps } from "@zag-js/react";
-import { AccordionContext, AccordionItemContext } from "../context";
-import type { AccordionTriggerProps } from "../types";
+import { AccordionRootContext, AccordionItemContext } from "../modules/context";
+import type { AccordionTriggerProps } from "../modules/types";
 
 export function AccordionTrigger(props: AccordionTriggerProps) {
-    const api = useContext(AccordionContext);
-    const itemProps = useContext(AccordionItemContext);
-    const elementProps =  mergeProps(api.getItemTriggerProps(itemProps), {
+    const rootContext = useContext(AccordionRootContext);
+    const itemContext = useContext(AccordionItemContext);
+    const elementProps =  mergeProps(rootContext.api.getItemTriggerProps(itemContext.itemProps), {
         className: 'base:w-full base:text-start base:hover:preset-tonal-primary base:py-2 base:px-4 base:rounded-base base:flex base:justify-between base:items-center'
     }, props);
     return (
