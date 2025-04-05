@@ -1,6 +1,4 @@
-
 'use client';
-
 
 import { useState } from "react";
 import { Accordion } from "./components/accordion";
@@ -8,7 +6,6 @@ import { Accordion } from "./components/accordion";
 export default function Home() {
   const items = [1, 2, 3];
   const [value, setValue] = useState(["item-1"]);
-
   return (
     <div className="grid place-items-center w-screen h-screen">
       <div className="max-w-lg w-full">
