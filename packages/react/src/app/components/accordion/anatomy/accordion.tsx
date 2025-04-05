@@ -17,7 +17,7 @@ export function Accordion(props: AccordionProps) {
     });
     const api = accordion.connect(service, normalizeProps);
     const elementProps =  mergeProps(api.getRootProps(), {
-        className: 'base:grid gap-2'
+        className: 'base:grid base:gap-2'
     }, componentProps);
     return (
         <AccordionContext.Provider value={api}>

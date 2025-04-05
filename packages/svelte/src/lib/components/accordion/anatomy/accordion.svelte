@@ -16,7 +16,7 @@
     }));
     const api = $derived(accordion.connect(service, normalizeProps));
     const elementProps =  $derived(mergeProps(api.getRootProps(), {
-        class: 'base:grid gap-2'
+        class: 'base:grid base:gap-2'
     }, componentProps));
     setContext('accordion-context', {
         get api() {

@@ -2,7 +2,6 @@
     import { Accordion } from "$lib/components/accordion";
 
     const items = [1, 2, 3];
-    
     let value = $state(['item-1'])
 </script>
 
