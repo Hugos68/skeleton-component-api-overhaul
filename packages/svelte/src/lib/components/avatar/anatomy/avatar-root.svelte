@@ -6,20 +6,21 @@
 
 	const props: AvatarRootProps = $props();
 	const [machineProps, componentProps] = $derived(avatar.splitProps(props));
+	const { children, ...restAttributes } = $derived(componentProps);
 	const id = $props.id();
 	const service = useMachine(avatar.machine, () => ({
 		id: id,
 		...machineProps
 	}));
 	const api = $derived(avatar.connect(service, normalizeProps));
-	const elementProps = $derived(
+	const attributes = $derived(
 		mergeProps(
 			api.getRootProps(),
 			{
 				class:
 					'base:isolate base:bg-surface-400-600 base:size-16 base:rounded-full base:overflow-hidden'
 			},
-			componentProps
+			restAttributes
 		)
 	);
 	AvatarRootContext.provide({
@@ -29,6 +30,6 @@
 	});
 </script>
 
-<div {...elementProps}>
-	{@render componentProps.children?.()}
+<div {...attributes}>
+	{@render children?.()}
 </div>

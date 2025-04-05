@@ -2,10 +2,9 @@
 	import { mergeProps } from '@zag-js/svelte';
 	import { AvatarRootContext } from '../modules/context';
 	import type { AvatarImageProps } from '../modules/types';
-
-	const props: AvatarImageProps = $props();
 	const rootContext = AvatarRootContext.consume();
-	const elementProps = $derived(
+	const props: AvatarImageProps = $props();
+	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getImageProps(),
 			{
@@ -16,4 +15,4 @@
 	);
 </script>
 
-<img {...elementProps} />
+<img {...attributes} />

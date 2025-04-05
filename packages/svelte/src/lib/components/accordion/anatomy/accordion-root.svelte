@@ -6,19 +6,20 @@
 
 	const props: AccordionRootProps = $props();
 	const [machineProps, componentProps] = $derived(accordion.splitProps(props));
+	const { children, ...restAttributes } = $derived(componentProps);
 	const id = $props.id();
 	const service = useMachine(accordion.machine, () => ({
 		id: id,
 		...machineProps
 	}));
 	const api = $derived(accordion.connect(service, normalizeProps));
-	const elementProps = $derived(
+	const attributes = $derived(
 		mergeProps(
 			api.getRootProps(),
 			{
 				class: 'base:grid base:gap-2'
 			},
-			componentProps
+			restAttributes
 		)
 	);
 	AccordionRootContext.provide({
@@ -28,6 +29,6 @@
 	});
 </script>
 
-<div {...elementProps}>
-	{@render props.children?.()}
+<div {...attributes}>
+	{@render children?.()}
 </div>

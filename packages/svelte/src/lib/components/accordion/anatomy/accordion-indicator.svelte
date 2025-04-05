@@ -3,14 +3,15 @@
 	import { AccordionRootContext, AccordionItemContext } from '../modules/context';
 	import type { AccordionIndicatorProps } from '../modules/types';
 
-	const props: AccordionIndicatorProps = $props();
 	const rootContext = AccordionRootContext.consume();
 	const itemContext = AccordionItemContext.consume();
-	const elementProps = $derived(
-		mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), props)
+	const props: AccordionIndicatorProps = $props();
+	const { children, ...restAttributes } = $derived(props);
+	const attributes = $derived(
+		mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), restAttributes)
 	);
 </script>
 
-<div {...elementProps}>
-	{@render props.children?.()}
+<div {...attributes}>
+	{@render children?.()}
 </div>

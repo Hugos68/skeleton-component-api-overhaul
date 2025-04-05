@@ -4,16 +4,18 @@
 	import { AccordionItemContext, AccordionRootContext } from '../modules/context';
 	import type { AccordionItemProps } from '../modules/types';
 
+	const rootContext = AccordionRootContext.consume();
+
 	const props: AccordionItemProps = $props();
 	const [itemProps, componentProps] = $derived(accordion.splitItemProps(props));
-	const rootContext = AccordionRootContext.consume();
-	const elementProps = $derived(
+	const { children, ...restAttributes } = $derived(componentProps);
+	const attributes = $derived(
 		mergeProps(
 			rootContext.api.getItemProps(itemProps),
 			{
 				class: 'base:grid gap-2'
 			},
-			componentProps
+			restAttributes
 		)
 	);
 	AccordionItemContext.provide({
@@ -23,6 +25,6 @@
 	});
 </script>
 
-<div {...elementProps}>
-	{@render props.children?.()}
+<div {...attributes}>
+	{@render children?.()}
 </div>
