@@ -1,7 +1,7 @@
-import type { Snippet } from "svelte";
+import type { Snippet } from 'svelte';
 
 interface PropsWithChildren {
-    children?: Snippet;
+	children?: Snippet;
 }
 
 export type { PropsWithChildren };

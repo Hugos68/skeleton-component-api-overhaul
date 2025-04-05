@@ -5,7 +5,7 @@ import { mergeProps } from "@zag-js/react";
 import { AccordionRootContext, AccordionItemContext } from "../modules/context";
 import type { AccordionTriggerProps } from "../modules/types";
 
-export function AccordionTrigger(props: AccordionTriggerProps) {
+export default function(props: AccordionTriggerProps) {
     const rootContext = useContext(AccordionRootContext);
     const itemContext = useContext(AccordionItemContext);
     const elementProps =  mergeProps(rootContext.api.getItemTriggerProps(itemContext.itemProps), {

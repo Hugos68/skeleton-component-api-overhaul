@@ -1,16 +1,13 @@
-'use client';
-
-import { useContext } from "react";
 import { mergeProps } from "@zag-js/react";
+import { useContext } from "react";
 import { AccordionRootContext, AccordionItemContext } from "../modules/context";
-import { AccordionContentProps } from "../modules/types";
+import { AccordionIndicatorProps } from "../modules/types"
 
-export function AccordionContent(props: AccordionContentProps) {
+
+export default function(props: AccordionIndicatorProps) {
     const rootContext = useContext(AccordionRootContext);
     const itemContext = useContext(AccordionItemContext);
-    const elementProps =  mergeProps(rootContext.api.getItemContentProps(itemContext.itemProps), {
-        className: 'base:py-2 base:px-4'
-    }, props);
+    const elementProps =  mergeProps(rootContext.api.getItemIndicatorProps(itemContext.itemProps), props);
     return (
         <div {...elementProps}>
             {props.children}

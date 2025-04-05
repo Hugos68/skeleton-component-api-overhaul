@@ -41,6 +41,9 @@ importers:
       '@zag-js/accordion':
         specifier: ^1.8.2
         version: 1.8.2
+      '@zag-js/avatar':
+        specifier: ^1.8.2
+        version: 1.8.2
       '@zag-js/react':
         specifier: ^1.8.2
         version: 1.8.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)

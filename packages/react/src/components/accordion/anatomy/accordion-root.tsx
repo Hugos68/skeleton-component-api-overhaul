@@ -6,7 +6,7 @@ import { useMachine, normalizeProps, mergeProps } from '@zag-js/react';
 import { AccordionRootContext } from '../modules/context';
 import type { AccordionRootProps } from '../modules/types';
 
-export function AccordionRoot(props: AccordionRootProps) {
+export default function(props: AccordionRootProps) {
     const [
         zagProps,
         componentProps

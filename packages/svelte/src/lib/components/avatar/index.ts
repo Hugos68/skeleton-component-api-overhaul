@@ -1,2 +1,2 @@
-export * from './modules/types'
-export * from './modules/anatomy'
+export * from './modules/types';
+export * from './modules/anatomy';

@@ -1,10 +1,10 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @import '@skeletonlabs/skeleton';
 @import '@skeletonlabs/skeleton/themes/cerberus';
 @import '@skeletonlabs/skeleton/optional/presets';
 
 @custom-variant base {
-    @layer base {
-        @slot;
-    }
+	@layer base {
+		@slot;
+	}
 }
